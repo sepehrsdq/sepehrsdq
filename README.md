@@ -27,10 +27,6 @@ A few things I keep poking at:
 </div>
 
 <div align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=sepehrsdq&bg_color=0A1020&color=93A0C6&line=8B5CF6&point=22D3EE&area=true&hide_border=true&custom_title=Activity" width="100%" alt="Activity" />
-</div>
-
-<div align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sepehrsdq/sepehrsdq/output/github-snake-dark.svg" />
     <img src="https://raw.githubusercontent.com/sepehrsdq/sepehrsdq/output/github-snake.svg" alt="Contribution snake" width="100%" />
