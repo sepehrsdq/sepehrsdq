@@ -1,6 +1,5 @@
 /**
- * Builds assets/hero.svg — an animated, Persian-first profile banner.
- * Fonts are embedded so the banner renders identically on GitHub (SVG is served as an image).
+ * Builds assets/hero.svg — an animated terminal banner for the profile.
  *
  *   node scripts/hero.mjs
  */
@@ -10,164 +9,153 @@ import path from 'node:path';
 const ROOT = path.resolve(import.meta.dirname, '..');
 const FONT_DIR = path.join(ROOT, 'assets', 'fonts');
 
-const read = (file) => fs.readFileSync(path.join(ROOT, file), 'utf8');
 const font = (file) => fs.readFileSync(path.join(FONT_DIR, file)).toString('base64');
 
 const ARABIC_RANGE =
     'U+0600-06FF, U+0750-077F, U+0870-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC';
-const LATIN_RANGE = 'U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD';
 
-const arabic = font('vazir-arabic.woff2');
-const latin = font('vazir-latin.woff2');
-
-// Small deterministic PRNG so every build produces the same star field.
+// Small deterministic PRNG so the star field is stable between builds.
 let seed = 20261014;
 const random = () => {
     seed = (seed * 1664525 + 1013904223) % 4294967296;
     return seed / 4294967296;
 };
 
-const stars = Array.from({ length: 46 }, (_, index) => {
-    const x = Math.round(24 + random() * 1150);
-    const y = Math.round(16 + random() * 390);
-    const radius = (0.6 + random() * 1.5).toFixed(2);
-    const delay = (random() * 7).toFixed(2);
-    const duration = (3.4 + random() * 4).toFixed(2);
-    return `<circle cx="${x}" cy="${y}" r="${radius}" class="star" style="animation-delay:-${delay}s;animation-duration:${duration}s"/>`;
+const stars = Array.from({ length: 34 }, () => {
+    const x = Math.round(20 + random() * 1160);
+    const y = Math.round(14 + random() * 392);
+    const radius = (0.5 + random() * 1.3).toFixed(2);
+    const delay = (random() * 8).toFixed(2);
+    const duration = (3.6 + random() * 4.5).toFixed(2);
+    return `<circle cx="${x}" cy="${y}" r="${radius}" fill="#cfe0ff" class="star" style="animation-delay:-${delay}s;animation-duration:${duration}s"/>`;
 }).join('\n        ');
 
 const chips = [
-    ['C# / .NET', 150],
-    ['Python', 96],
-    ['WebRTC', 104],
-    ['AI Agents', 118],
-];
-let chipX = 1136;
-const chipMarkup = chips
-    .map(([label, width]) => {
-        const x = chipX - width;
-        chipX = x - 12;
-        return `<g class="chip" transform="translate(${x} 300)">
-            <rect width="${width}" height="38" rx="19" />
-            <text x="${width / 2}" y="25" text-anchor="middle">${label}</text>
-        </g>`;
+    ['C# / .NET', 96, 0],
+    ['Python', 84, 106],
+    ['Node.js', 92, 200],
+    ['WebRTC', 92, 302],
+]
+    .map(([label, width, offset]) => {
+        const x = 1156 - offset - width;
+        return `<g class="chip" transform="translate(${x} 300)"><rect width="${width}" height="34" rx="17" /><text x="${width / 2}" y="22" text-anchor="middle">${label}</text></g>`;
     })
     .join('\n        ');
 
+const line = (y, markup) => `<text class="line" x="70" y="${y}">${markup}</text>`;
+
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
-    <title id="title">سپهر صدیق — مهندس نرم‌افزار</title>
-    <desc id="desc">بنر متحرک پروفایل گیت‌هاب سپهر صدیق</desc>
+    <title id="title">Sepehr Seddiq — profile banner</title>
+    <desc id="desc">An animated terminal window with a short introduction</desc>
     <defs>
         <style type="text/css"><![CDATA[
             @font-face {
                 font-family: 'Vazirmatn';
                 font-style: normal;
                 font-weight: 100 900;
-                src: url(data:font/woff2;base64,${arabic}) format('woff2');
+                src: url(data:font/woff2;base64,${font('vazir-arabic.woff2')}) format('woff2');
                 unicode-range: ${ARABIC_RANGE};
             }
-            @font-face {
-                font-family: 'Vazirmatn';
-                font-style: normal;
-                font-weight: 100 900;
-                src: url(data:font/woff2;base64,${latin}) format('woff2');
-                unicode-range: ${LATIN_RANGE};
-            }
-            text { font-family: 'Vazirmatn', 'Segoe UI', system-ui, sans-serif; }
 
-            .star { fill: #cfe0ff; opacity: .35; animation: twinkle 4s ease-in-out infinite; }
+            .mono { font-family: ui-monospace, 'Cascadia Code', 'SFMono-Regular', Consolas, 'Liberation Mono', monospace; }
+            .name { font-family: 'Vazirmatn', 'Segoe UI', system-ui, sans-serif; }
+            .sans { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+
+            .star { opacity: .35; animation: twinkle 4s ease-in-out infinite; }
             @keyframes twinkle {
-                0%, 100% { opacity: .12; }
-                50% { opacity: .72; }
+                0%, 100% { opacity: .1; }
+                50% { opacity: .65; }
             }
 
-            .aurora-a { animation: drift-a 22s ease-in-out infinite alternate; }
-            .aurora-b { animation: drift-b 28s ease-in-out infinite alternate; }
-            .aurora-c { animation: drift-c 26s ease-in-out infinite alternate; }
+            .aurora-a { animation: drift-a 24s ease-in-out infinite alternate; }
+            .aurora-b { animation: drift-b 30s ease-in-out infinite alternate; }
             @keyframes drift-a {
-                from { transform: translate(-40px, -26px) scale(1); }
-                to   { transform: translate(60px, 34px) scale(1.14); }
+                from { transform: translate(-30px, -20px) scale(1); }
+                to   { transform: translate(50px, 26px) scale(1.12); }
             }
             @keyframes drift-b {
-                from { transform: translate(30px, 20px) scale(1.05); }
-                to   { transform: translate(-50px, -30px) scale(.92); }
-            }
-            @keyframes drift-c {
-                from { transform: translate(0, 18px) scale(.95); }
-                to   { transform: translate(-36px, -22px) scale(1.12); }
+                from { transform: translate(26px, 16px) scale(1.04); }
+                to   { transform: translate(-44px, -26px) scale(.94); }
             }
 
-            .orbit { transform-box: view-box; transform-origin: 168px 204px; animation: spin 26s linear infinite; }
-            @keyframes spin { to { transform: rotate(360deg); } }
+            .cursor { opacity: 0; animation: blink 1.1s steps(1, end) 5s infinite; }
+            @keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
 
-            .sheen { animation: sweep 9s ease-in-out infinite; }
-            @keyframes sweep {
-                0%   { transform: translateX(-520px); opacity: 0; }
-                12%  { opacity: .5; }
-                55%  { opacity: .5; }
-                70%, 100% { transform: translateX(1320px); opacity: 0; }
-            }
-
-            .chip rect { fill: rgba(255,255,255,.055); stroke: rgba(147,160,198,.28); stroke-width: 1; }
-            .chip text { fill: #C7D2F0; font-size: 14.5px; font-weight: 600; letter-spacing: .2px; }
-
-            .pulse { animation: pulse 5.5s ease-in-out infinite; }
+            .dot { animation: pulse 3.2s ease-in-out infinite; }
             @keyframes pulse {
-                0%, 100% { opacity: .55; }
+                0%, 100% { opacity: .35; }
                 50% { opacity: 1; }
+            }
+
+            .win { animation: lift 7s ease-in-out infinite; }
+            @keyframes lift {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-4px); }
+            }
+
+            .scan { animation: scan 7s linear infinite; }
+            @keyframes scan {
+                from { transform: translateY(0); }
+                to   { transform: translateY(250px); }
+            }
+
+            .chip rect { fill: rgba(255,255,255,.045); stroke: rgba(147,160,198,.22); stroke-width: 1; }
+            .chip text {
+                font-family: 'Segoe UI', system-ui, sans-serif;
+                fill: #C7D2F0; font-size: 13.5px; font-weight: 600; letter-spacing: .2px;
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                .star, .aurora-a, .aurora-b, .cursor, .dot, .win { animation: none; }
+                .cursor { opacity: 1; }
             }
         ]]></style>
 
         <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#070B18" />
-            <stop offset=".55" stop-color="#0A1024" />
-            <stop offset="1" stop-color="#0D1330" />
+            <stop offset="0" stop-color="#06090F" />
+            <stop offset=".6" stop-color="#0A1020" />
+            <stop offset="1" stop-color="#0C1330" />
         </linearGradient>
 
-        <radialGradient id="auroraViolet">
-            <stop offset="0" stop-color="#7C5CFF" stop-opacity=".55" />
+        <radialGradient id="violet">
+            <stop offset="0" stop-color="#7C5CFF" stop-opacity=".5" />
             <stop offset="1" stop-color="#7C5CFF" stop-opacity="0" />
         </radialGradient>
-        <radialGradient id="auroraCyan">
-            <stop offset="0" stop-color="#22D3EE" stop-opacity=".42" />
+        <radialGradient id="cyan">
+            <stop offset="0" stop-color="#22D3EE" stop-opacity=".34" />
             <stop offset="1" stop-color="#22D3EE" stop-opacity="0" />
         </radialGradient>
-        <radialGradient id="auroraPink">
-            <stop offset="0" stop-color="#F472B6" stop-opacity=".32" />
-            <stop offset="1" stop-color="#F472B6" stop-opacity="0" />
-        </radialGradient>
 
-        <linearGradient id="nameFill" x1="0" y1="0" x2="1" y2="0">
+        <linearGradient id="name" x1="0" y1="0" x2="1" y2="0">
             <stop offset="0" stop-color="#FFFFFF" />
-            <stop offset=".55" stop-color="#E6ECFF" />
-            <stop offset="1" stop-color="#A9C4FF" />
+            <stop offset=".6" stop-color="#E6ECFF" />
+            <stop offset="1" stop-color="#9DBDFF" />
         </linearGradient>
 
-        <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#8B5CF6" />
-            <stop offset=".5" stop-color="#22D3EE" />
-            <stop offset="1" stop-color="#F472B6" />
+        <linearGradient id="rule" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#8B5CF6" stop-opacity="0" />
+            <stop offset=".35" stop-color="#8B5CF6" stop-opacity=".55" />
+            <stop offset=".7" stop-color="#22D3EE" stop-opacity=".45" />
+            <stop offset="1" stop-color="#22D3EE" stop-opacity="0" />
         </linearGradient>
 
-        <linearGradient id="sheenGradient" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0" stop-color="#ffffff" stop-opacity="0" />
-            <stop offset=".5" stop-color="#ffffff" stop-opacity=".14" />
-            <stop offset="1" stop-color="#ffffff" stop-opacity="0" />
+        <linearGradient id="scanGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7EE787" stop-opacity="0" /><stop offset=".5" stop-color="#7EE787" stop-opacity=".10" /><stop offset="1" stop-color="#7EE787" stop-opacity="0" /></linearGradient>\n        <linearGradient id="term" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#0C1224" />
+            <stop offset="1" stop-color="#0A0F1E" />
         </linearGradient>
 
         <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-            <path d="M40 0H0V40" fill="none" stroke="#7C8BB8" stroke-opacity=".09" stroke-width="1" />
+            <path d="M40 0H0V40" fill="none" stroke="#7C8BB8" stroke-opacity=".07" stroke-width="1" />
         </pattern>
 
         <filter id="soft" x="-40%" y="-40%" width="180%" height="180%">
-            <feGaussianBlur stdDeviation="46" />
+            <feGaussianBlur stdDeviation="52" />
         </filter>
-        <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
-            <feGaussianBlur stdDeviation="9" result="b" />
-            <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
+        <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+            <feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#000" flood-opacity=".45" />
         </filter>
 
-        <clipPath id="canvas"><rect width="1200" height="420" rx="22" /></clipPath>
+        <clipPath id="canvas"><rect width="1200" height="420" rx="20" /></clipPath>
     </defs>
 
     <g clip-path="url(#canvas)">
@@ -175,41 +163,54 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" v
         <rect width="1200" height="420" fill="url(#grid)" />
 
         <g filter="url(#soft)">
-            <circle class="aurora-a" cx="230" cy="330" r="220" fill="url(#auroraViolet)" />
-            <circle class="aurora-b" cx="980" cy="60" r="210" fill="url(#auroraCyan)" />
-            <circle class="aurora-c" cx="700" cy="360" r="190" fill="url(#auroraPink)" />
+            <circle class="aurora-a" cx="210" cy="330" r="210" fill="url(#violet)" />
+            <circle class="aurora-b" cx="1010" cy="70" r="200" fill="url(#cyan)" />
         </g>
 
         ${stars}
 
-        <g transform="translate(-240 0) skewX(-14)">
-            <rect class="sheen" x="0" y="0" width="240" height="420" fill="url(#sheenGradient)" />
-        </g>
+        <!-- Terminal window -->
+        <g class="win" filter="url(#shadow)">
+            <rect x="44" y="40" width="620" height="336" rx="14" fill="url(#term)" stroke="rgba(147,160,198,.18)" />
+            <path d="M44 54a14 14 0 0 1 14-14h592a14 14 0 0 1 14 14v22H44z" fill="rgba(255,255,255,.035)" />
+            <line x1="44" y1="76" x2="664" y2="76" stroke="rgba(147,160,198,.16)" />
+            <circle cx="66" cy="58" r="4.6" fill="#FF5F57" />
+            <circle cx="82" cy="58" r="4.6" fill="#FEBC2E" />
+            <circle cx="98" cy="58" r="4.6" fill="#28C840" />
+            <text x="118" y="62.5" class="mono" font-size="11.5" fill="#6E7CA3">sepehr@github: ~</text>
 
-        <!-- Monogram -->
-        <g transform="translate(96 132)">
-            <circle cx="72" cy="72" r="70" fill="rgba(255,255,255,.03)" stroke="url(#ring)" stroke-width="1.6" />
-            <circle cx="72" cy="72" r="58" fill="none" stroke="rgba(147,160,198,.18)" stroke-width="1" stroke-dasharray="3 7" />
-            <text x="72" y="96" text-anchor="middle" font-size="64" font-weight="800" fill="url(#nameFill)">S</text>
-            <g class="orbit">
-                <circle cx="72" cy="2" r="4.5" fill="#22D3EE" filter="url(#glow)" />
+            <rect class="scan" x="44" y="80" width="620" height="46" fill="url(#scanGrad)" opacity=".5" /><g class="mono" font-size="14.5">
+                ${line(112, '<tspan fill="#7EE787">~/sepehr</tspan> <tspan fill="#8B949E">$</tspan> <tspan fill="#E6EDF3">whoami</tspan>')}
+                ${line(140, '<tspan fill="#C7D2F0">sepehr</tspan> <tspan fill="#8B949E">— backend &amp; whatever-else-breaks</tspan>')}
+                ${line(180, '<tspan fill="#7EE787">~/sepehr</tspan> <tspan fill="#8B949E">$</tspan> <tspan fill="#E6EDF3">ls projects/</tspan>')}
+                ${line(208, '<tspan fill="#79C0FF">sepehr-meeting</tspan> <tspan fill="#8B949E">darsjo</tspan> <tspan fill="#8B949E">Zanjir</tspan> <tspan fill="#8B949E">SdqTerminal</tspan>')}
+                ${line(248, '<tspan fill="#7EE787">~/sepehr</tspan> <tspan fill="#8B949E">$</tspan> <tspan fill="#E6EDF3">cat now.txt</tspan>')}
+                ${line(276, '<tspan fill="#C7D2F0">building self-hosted video calls that work in Persian</tspan>')}
+                ${line(316, '<tspan fill="#7EE787">~/sepehr</tspan> <tspan fill="#8B949E">$</tspan>')}
             </g>
-        </g>
-        <text x="96" y="316" font-size="12.5" letter-spacing="4.2" fill="#7C8BB8" font-weight="600">SEPEHR SEDDIQ</text>
-
-        <!-- Name (RTL) -->
-        <g>
-            <text x="1136" y="196" text-anchor="end" font-size="62" font-weight="800" fill="url(#nameFill)">سپهر صدیق</text>
-            <text x="1136" y="240" text-anchor="end" font-size="20" fill="#93A0C6">مهندس نرم‌افزار · سازندهٔ سامانهٔ سپهر</text>
-            <text x="1136" y="270" text-anchor="end" font-size="14" fill="#6E7CA3" letter-spacing=".6">Software engineer · Persian-first, self-hosted tooling</text>
-            ${chipMarkup}
+            <rect class="cursor" x="170" y="303" width="9" height="18" rx="2" fill="#7EE787" />
         </g>
 
-        <!-- baseline -->
-        <g class="pulse">
-            <rect x="96" y="372" width="1008" height="1.4" fill="url(#ring)" opacity=".55" />
+        <!-- Identity -->
+        <g class="name">
+            <text x="1156" y="112" text-anchor="end" font-size="54" font-weight="800" fill="url(#name)">سپهر صدیق</text>
         </g>
-        <rect width="1200" height="420" rx="22" fill="none" stroke="rgba(147,160,198,.16)" stroke-width="1" />
+        <text x="1156" y="150" text-anchor="end" class="mono" font-size="13.5" fill="#6E7CA3">@sepehrsdq</text>
+
+        <g class="sans" font-size="15.5" fill="#93A0C6">
+            <text x="1156" y="198" text-anchor="end">Self-hosting beats trusting someone else's uptime.</text>
+            <text x="1156" y="224" text-anchor="end">Mostly C#, sometimes Python, always a terminal.</text>
+            <text x="1156" y="250" text-anchor="end">Currently: video calls that don't need a cloud.</text>
+        </g>
+
+        ${chips}
+
+        <text x="1156" y="372" text-anchor="end" class="mono" font-size="12" fill="#55638C">github.com/sepehrsdq</text>
+
+        <rect x="44" y="396" width="1112" height="1.2" fill="url(#rule)" />
+        <circle class="dot" cx="60" cy="396" r="2.6" fill="#22D3EE" />
+
+        <rect width="1200" height="420" rx="20" fill="none" stroke="rgba(147,160,198,.14)" />
     </g>
 </svg>
 `;

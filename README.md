@@ -1,62 +1,44 @@
 <div align="center">
-  <img src="assets/hero.svg" alt="سپهر صدیق — مهندس نرم‌افزار" width="100%" />
+  <img src="assets/hero.svg" alt="Sepehr Seddiq" width="100%" />
 </div>
 
-<div dir="rtl">
+## Hey
 
-### کمی دربارهٔ من
+I write C# for a living, break things in Python for fun, and self-host almost everything
+I use. If a tool I need doesn't exist, I build a worse version of it first and fix it later.
 
-نرم‌افزار می‌سازم؛ بیشتر از همه چیزهایی را دوست دارم که **روی سرور خودِ آدم‌ها** اجرا می‌شوند، **فارسی** را جدی می‌گیرند و بدون وابستگی به سرویس بیرونی کار می‌کنند. روزها با C# و .NET، شب‌ها با Python و Node.js، و همیشه با یک ترمینال باز.
+A few things I keep poking at:
 
-</div>
+- **[Sepehr Meeting](https://github.com/sepehrsdq/Sepehr-Meeting)** — self-hosted video calls that actually work in Persian, all RTL, no external service.
+- **[SdqTerminal](https://github.com/sepehrsdq/SdqTerminal)** — a Windows terminal with real RTL support for Persian, Arabic and mixed text.
+- **[Zanjir](https://github.com/sepehrsdq/Zanjir)** — chains Windscribe through my own VPS.
+- **[darsjo](https://github.com/sepehrsdq/darsjo)** — online classes for schools, BigBlueButton under the hood.
 
-<div dir="rtl">
-
-### در حال ساختن
-
-<table>
-    <tr>
-        <td width="56" align="center">🔭</td>
-        <td>
-            <b><a href="https://github.com/sepehrsdq/Sepehr-Meeting">سامانهٔ سپهر</a></b> — جلسات تصویری سازمانی، خودمیزبان و کاملاً فارسی؛ WebRTC روی mediasoup با چیدمان راست‌به‌چپ و تم روشن.
-        </td>
-    </tr>
-    <tr>
-        <td align="center">🖥️</td>
-        <td>
-            <b><a href="https://github.com/sepehrsdq/SdqTerminal">SdqTerminal</a></b> — ترمینال ویندوز با پشتیبانی هوشمند RTL برای فارسی، عربی و متن‌های ترکیبی.
-        </td>
-    </tr>
-    <tr>
-        <td align="center">🌐</td>
-        <td>
-            <b><a href="https://github.com/sepehrsdq/Zanjir">زنجیره</a></b> — عبور ترافیک Windscribe از VPS شخصی؛ تونل زنجیره‌ای، بدون سرویس واسط.
-        </td>
-    </tr>
-    <tr>
-        <td align="center">🎓</td>
-        <td>
-            <b><a href="https://github.com/sepehrsdq/darsjo">درس‌جو</a></b> — سامانهٔ کلاس آنلاین مدرسه با BigBlueButton، مدیریت فایل، جلسات و ضبط.
-        </td>
-    </tr>
-</table>
-
+<div align="center">
+  <img src="assets/stack.svg" alt="Tools" width="100%" />
 </div>
 
 <div align="center">
-  <img src="assets/stack.svg" alt="ابزارها و فناوری‌ها" width="100%" />
+  <img src="assets/stats.svg" alt="GitHub stats" width="100%" />
 </div>
 
 <div align="center">
-  <img src="assets/stats.svg" alt="آمار گیت‌هاب" width="100%" />
+  <img src="https://streak-stats.demolab.com?user=sepehrsdq&hide_border=true&background=0A1020&stroke=1B2340&ring=8B5CF6&fire=F472B6&currStreakLabel=93A0C6&sideLabels=93A0C6&dates=55638C&currStreakNum=E6ECFF&sideNums=E6ECFF" height="165" alt="Streak" />
 </div>
 
-<div dir="rtl" align="center">
+<div align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=sepehrsdq&bg_color=0A1020&color=93A0C6&line=8B5CF6&point=22D3EE&area=true&hide_border=true&custom_title=Activity" width="100%" alt="Activity" />
+</div>
 
-<sub>
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sepehrsdq/sepehrsdq/output/github-snake-dark.svg" />
+    <img src="https://raw.githubusercontent.com/sepehrsdq/sepehrsdq/output/github-snake.svg" alt="Contribution snake" width="100%" />
+  </picture>
+</div>
 
-**برای همکاری، ایده یا گزارش باگ** → [Issues](https://github.com/sepehrsdq/sepehrsdq/issues) · **لینکدین و ایمیل** به‌زودی
+<div align="center">
 
-</sub>
+**Mail:** [sepehrseddiq@gmail.com](mailto:sepehrseddiq@gmail.com) · **GitHub:** [@sepehrsdq](https://github.com/sepehrsdq)
 
 </div>
