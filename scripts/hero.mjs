@@ -68,7 +68,24 @@ const projectsLine = picked
     .map(({ short, first }) => `<tspan fill="${first ? '#79C0FF' : '#8B949E'}">${esc(short)}</tspan>`)
     .join(' ');
 
-const nowLine = esc(truncate(profile?.latest?.message || 'building self-hosted video calls that work in Persian', 58));
+const commit = profile?.lastCommit || {
+    repo: 'Sepehr-Meeting',
+    sha: '4b7c1d9',
+    message: 'self-hosted video calls that work in Persian',
+    when: '',
+};
+
+const commitPrefix = [commit.sha, commit.repo ? `${commit.repo}:` : ''].filter(Boolean).join(' ');
+const commitMessage = truncate(commit.message || 'shipping something small', Math.max(24, 56 - commitPrefix.length));
+const commitLine = [
+    commit.sha ? `<tspan fill="#E3B341">${esc(commit.sha)}</tspan>` : '',
+    commit.repo ? `<tspan fill="#79C0FF">${esc(commit.repo)}:</tspan>` : '',
+    `<tspan fill="#C7D2F0">${esc(commitMessage)}</tspan>`,
+]
+    .filter(Boolean)
+    .join(' ');
+
+const tagline = 'self-hosted video calls that don\u2019t need a cloud';
 
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
     <title id="title">Sepehr Seddiq — profile banner</title>
@@ -206,15 +223,18 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" v
             <text x="118" y="62.5" class="mono" font-size="11.5" fill="#6E7CA3">sepehr@github: ~</text>
 
             <rect class="scan" x="44" y="80" width="620" height="46" fill="url(#scanGrad)" opacity=".5" /><g class="mono" font-size="14.5">
-                ${line(112, '<tspan fill="#7EE787">~/sepehr</tspan> <tspan fill="#8B949E">$</tspan> <tspan fill="#E6EDF3">whoami</tspan>')}
-                ${line(140, '<tspan fill="#C7D2F0">sepehr</tspan> <tspan fill="#8B949E">— backend &amp; whatever-else-breaks</tspan>')}
-                ${line(180, '<tspan fill="#7EE787">~/sepehr</tspan> <tspan fill="#8B949E">$</tspan> <tspan fill="#E6EDF3">ls projects/</tspan>')}
-                ${line(208, projectsLine)}
-                ${line(248, '<tspan fill="#7EE787">~/sepehr</tspan> <tspan fill="#8B949E">$</tspan> <tspan fill="#E6EDF3">cat now.txt</tspan>')}
-                ${line(276, `<tspan fill="#C7D2F0">${nowLine}</tspan>`)}
-                ${line(316, '<tspan fill="#7EE787">~/sepehr</tspan> <tspan fill="#8B949E">$</tspan>')}
+                ${line(108, '<tspan fill="#7EE787">~/sepehr</tspan> <tspan fill="#8B949E">$</tspan> <tspan fill="#E6EDF3">whoami</tspan>')}
+                ${line(134, '<tspan fill="#C7D2F0">sepehr</tspan> <tspan fill="#8B949E">— backend &amp; whatever-else-breaks</tspan>')}
+                ${line(164, '<tspan fill="#7EE787">~/sepehr</tspan> <tspan fill="#8B949E">$</tspan> <tspan fill="#E6EDF3">ls projects/</tspan>')}
+                ${line(190, projectsLine)}
+                ${line(220, '<tspan fill="#7EE787">~/sepehr</tspan> <tspan fill="#8B949E">$</tspan> <tspan fill="#E6EDF3">git log -1 --oneline</tspan>')}
+                ${line(246, commitLine)}
+                ${line(276, '<tspan fill="#7EE787">~/sepehr</tspan> <tspan fill="#8B949E">$</tspan> <tspan fill="#E6EDF3">cat now.txt</tspan>')}
+                ${line(302, `<tspan fill="#C7D2F0">${esc(tagline)}</tspan>`)}
+                ${line(330, '<tspan fill="#7EE787">~/sepehr</tspan> <tspan fill="#8B949E">$</tspan>')}
             </g>
-            <rect class="cursor" x="170" y="303" width="9" height="18" rx="2" fill="#7EE787" />
+            <text x="648" y="246" text-anchor="end" class="mono" font-size="11.5" fill="#55638C">${esc(commit.when || 'today')}</text>
+            <rect class="cursor" x="168" y="317" width="9" height="18" rx="2" fill="#7EE787" />
         </g>
 
         <!-- Identity -->

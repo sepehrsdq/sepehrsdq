@@ -168,15 +168,18 @@
             <text x="118" y="62.5" class="mono" font-size="11.5" fill="#6E7CA3">sepehr@github: ~</text>
 
             <rect class="scan" x="44" y="80" width="620" height="46" fill="url(#scanGrad)" opacity=".5" /><g class="mono" font-size="14.5">
-                <text class="line" x="70" y="112"><tspan fill="#7EE787">~/sepehr</tspan> <tspan fill="#8B949E">$</tspan> <tspan fill="#E6EDF3">whoami</tspan></text>
-                <text class="line" x="70" y="140"><tspan fill="#C7D2F0">sepehr</tspan> <tspan fill="#8B949E">— backend &amp; whatever-else-breaks</tspan></text>
-                <text class="line" x="70" y="180"><tspan fill="#7EE787">~/sepehr</tspan> <tspan fill="#8B949E">$</tspan> <tspan fill="#E6EDF3">ls projects/</tspan></text>
-                <text class="line" x="70" y="208"><tspan fill="#79C0FF">Sepehr-Meeting</tspan> <tspan fill="#8B949E">darsjo</tspan> <tspan fill="#8B949E">Zanjir</tspan> <tspan fill="#8B949E">SdqTerminal</tspan></text>
-                <text class="line" x="70" y="248"><tspan fill="#7EE787">~/sepehr</tspan> <tspan fill="#8B949E">$</tspan> <tspan fill="#E6EDF3">cat now.txt</tspan></text>
-                <text class="line" x="70" y="276"><tspan fill="#C7D2F0">Sepehr Meeting 1.0.0 - self-hosted WebRTC video…</tspan></text>
-                <text class="line" x="70" y="316"><tspan fill="#7EE787">~/sepehr</tspan> <tspan fill="#8B949E">$</tspan></text>
+                <text class="line" x="70" y="108"><tspan fill="#7EE787">~/sepehr</tspan> <tspan fill="#8B949E">$</tspan> <tspan fill="#E6EDF3">whoami</tspan></text>
+                <text class="line" x="70" y="134"><tspan fill="#C7D2F0">sepehr</tspan> <tspan fill="#8B949E">— backend &amp; whatever-else-breaks</tspan></text>
+                <text class="line" x="70" y="164"><tspan fill="#7EE787">~/sepehr</tspan> <tspan fill="#8B949E">$</tspan> <tspan fill="#E6EDF3">ls projects/</tspan></text>
+                <text class="line" x="70" y="190"><tspan fill="#79C0FF">Sepehr-Meeting</tspan> <tspan fill="#8B949E">darsjo</tspan> <tspan fill="#8B949E">Zanjir</tspan> <tspan fill="#8B949E">SdqTerminal</tspan></text>
+                <text class="line" x="70" y="220"><tspan fill="#7EE787">~/sepehr</tspan> <tspan fill="#8B949E">$</tspan> <tspan fill="#E6EDF3">git log -1 --oneline</tspan></text>
+                <text class="line" x="70" y="246"><tspan fill="#E3B341">09f5f88</tspan> <tspan fill="#79C0FF">darsjo:</tspan> <tspan fill="#C7D2F0">landing page for the preview site</tspan></text>
+                <text class="line" x="70" y="276"><tspan fill="#7EE787">~/sepehr</tspan> <tspan fill="#8B949E">$</tspan> <tspan fill="#E6EDF3">cat now.txt</tspan></text>
+                <text class="line" x="70" y="302"><tspan fill="#C7D2F0">self-hosted video calls that don’t need a cloud</tspan></text>
+                <text class="line" x="70" y="330"><tspan fill="#7EE787">~/sepehr</tspan> <tspan fill="#8B949E">$</tspan></text>
             </g>
-            <rect class="cursor" x="170" y="303" width="9" height="18" rx="2" fill="#7EE787" />
+            <text x="648" y="246" text-anchor="end" class="mono" font-size="11.5" fill="#55638C">8h ago</text>
+            <rect class="cursor" x="168" y="317" width="9" height="18" rx="2" fill="#7EE787" />
         </g>
 
         <!-- Identity -->

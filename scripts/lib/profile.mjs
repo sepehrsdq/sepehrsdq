@@ -46,6 +46,18 @@ async function api(url, headers) {
     return response.json();
 }
 
+// "3h ago" style relative time for the terminal line.
+const ago = (iso) => {
+    const minutes = Math.max(0, Math.round((Date.now() - new Date(iso).getTime()) / 60000));
+    if (minutes < 2) return 'just now';
+    if (minutes < 60) return `${minutes}m ago`;
+    const hours = Math.round(minutes / 60);
+    if (hours < 24) return `${hours}h ago`;
+    const days = Math.round(hours / 24);
+    if (days < 30) return `${days}d ago`;
+    return `${Math.round(days / 30)}mo ago`;
+};
+
 export async function loadProfile() {
     const token = process.env.GITHUB_TOKEN || '';
     const headers = {
@@ -88,6 +100,29 @@ export async function loadProfile() {
             }
         }
 
+        // Newest commit written by me (search index, one request), skipping the profile repo itself.
+        let lastCommit = null;
+        try {
+            const found = await api(
+                `/search/commits?q=${encodeURIComponent(`author:${USER} -repo:${USER}/${USER}`)}&sort=committer-date&order=desc&per_page=1`,
+                headers,
+            );
+            const hit = found.items?.[0];
+            if (hit) {
+                lastCommit = {
+                    repo: hit.repository?.name || '',
+                    sha: String(hit.sha || '').slice(0, 7),
+                    message: String(hit.commit?.message || '').split('\n')[0].trim(),
+                    when: ago(hit.commit?.committer?.date || hit.commit?.author?.date || Date.now()),
+                    at: hit.commit?.committer?.date || null,
+                };
+            }
+        } catch {
+            if (latest) lastCommit = { ...latest, sha: '', when: '', at: null };
+        }
+
+        if (!lastCommit && latest) lastCommit = { ...latest, sha: '', when: '', at: null };
+
         const topicCounts = {};
         for (const repo of own) {
             for (const topic of repo.topics || []) topicCounts[topic] = (topicCounts[topic] || 0) + 1;
@@ -105,6 +140,7 @@ export async function loadProfile() {
             projects: own.slice(0, 4).map((repo) => repo.name),
             languages: ranked,
             latest,
+            lastCommit,
         };
     } catch (error) {
         console.warn(`profile data unavailable: ${error.message}`);
