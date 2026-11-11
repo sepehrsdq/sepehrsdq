@@ -7,6 +7,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
+import { loadProfile } from './lib/profile.mjs';
+
 const ROOT = path.resolve(import.meta.dirname, '..');
 const FONT_DIR = path.join(ROOT, 'assets', 'fonts');
 
@@ -17,18 +19,29 @@ const ARABIC_RANGE =
 const LATIN_RANGE =
     'U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD';
 
-const items = [
-    ['C# / .NET', 96],
-    ['Python', 84],
-    ['Node.js', 92],
-    ['PostgreSQL', 112],
-    ['Redis', 78],
-    ['Docker', 86],
-    ['Linux', 74],
-    ['WebRTC', 92],
-    ['mediasoup', 108],
-    ['AI agents', 100],
+// Live tech list: the languages actually present in the public repos, widest first.
+const profile = await loadProfile();
+const fallback = [
+    'C# / .NET',
+    'Python',
+    'Node.js',
+    'PostgreSQL',
+    'Redis',
+    'Docker',
+    'Linux',
+    'WebRTC',
+    'mediasoup',
+    'AI agents',
 ];
+const languageLabels = (profile?.languages || []).map((lang) => lang.label).filter((label) => label !== 'CSS' && label !== 'HTML');
+const topicLabels = profile?.topics || [];
+const labels = profile ? [...new Set([...topicLabels.slice(0, 5), ...languageLabels])].slice(0, 9) : fallback;
+
+const items = labels.map((label) => [label, Math.max(72, Math.round(24 + label.length * 8.1))]);
+const totalWidth = items.reduce((sum, [, width]) => sum + width, 0) + 10 * (items.length - 1);
+if (totalWidth > 1120) {
+    items.pop();
+}
 
 const gap = 10;
 const total = items.reduce((sum, [, width]) => sum + width, 0) + gap * (items.length - 1);

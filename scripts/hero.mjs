@@ -6,6 +6,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
+import { loadProfile, truncate } from './lib/profile.mjs';
+
+const esc = (value) =>
+    String(value).replace(/[&<>"]/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[character]);
+
 const ROOT = path.resolve(import.meta.dirname, '..');
 const FONT_DIR = path.join(ROOT, 'assets', 'fonts');
 
@@ -43,6 +48,27 @@ const chips = [
     .join('\n        ');
 
 const line = (y, markup) => `<text class="line" x="70" y="${y}">${markup}</text>`;
+
+// Live data with a graceful fallback so a rate-limited build never breaks the design.
+const profile = await loadProfile();
+const projectNames = (profile?.projects?.length ? profile.projects : ['sepehr-meeting', 'darsjo', 'Zanjir', 'SdqTerminal'])
+    .slice()
+    .filter(Boolean);
+
+const picked = [];
+let used = 0;
+for (const name of projectNames) {
+    const short = truncate(name, 16);
+    if (used + short.length + 1 > 54) break;
+    picked.push({ short, first: picked.length === 0 });
+    used += short.length + 1;
+}
+
+const projectsLine = picked
+    .map(({ short, first }) => `<tspan fill="${first ? '#79C0FF' : '#8B949E'}">${esc(short)}</tspan>`)
+    .join(' ');
+
+const nowLine = esc(truncate(profile?.latest?.message || 'building self-hosted video calls that work in Persian', 58));
 
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
     <title id="title">Sepehr Seddiq — profile banner</title>
@@ -183,9 +209,9 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" v
                 ${line(112, '<tspan fill="#7EE787">~/sepehr</tspan> <tspan fill="#8B949E">$</tspan> <tspan fill="#E6EDF3">whoami</tspan>')}
                 ${line(140, '<tspan fill="#C7D2F0">sepehr</tspan> <tspan fill="#8B949E">— backend &amp; whatever-else-breaks</tspan>')}
                 ${line(180, '<tspan fill="#7EE787">~/sepehr</tspan> <tspan fill="#8B949E">$</tspan> <tspan fill="#E6EDF3">ls projects/</tspan>')}
-                ${line(208, '<tspan fill="#79C0FF">sepehr-meeting</tspan> <tspan fill="#8B949E">darsjo</tspan> <tspan fill="#8B949E">Zanjir</tspan> <tspan fill="#8B949E">SdqTerminal</tspan>')}
+                ${line(208, projectsLine)}
                 ${line(248, '<tspan fill="#7EE787">~/sepehr</tspan> <tspan fill="#8B949E">$</tspan> <tspan fill="#E6EDF3">cat now.txt</tspan>')}
-                ${line(276, '<tspan fill="#C7D2F0">building self-hosted video calls that work in Persian</tspan>')}
+                ${line(276, `<tspan fill="#C7D2F0">${nowLine}</tspan>`)}
                 ${line(316, '<tspan fill="#7EE787">~/sepehr</tspan> <tspan fill="#8B949E">$</tspan>')}
             </g>
             <rect class="cursor" x="170" y="303" width="9" height="18" rx="2" fill="#7EE787" />
