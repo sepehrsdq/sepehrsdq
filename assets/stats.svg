@@ -43,7 +43,7 @@
     <text x="1136" y="52" text-anchor="end" font-size="14" fill="#7C8BB8">در یک نگاه</text>
     <text x="1136" y="86" text-anchor="end" font-size="22" font-weight="700" fill="#E8ECFF">آمار گیت‌هاب</text>
     <g transform="translate(1136 0)">
-            <text x="0" y="150" text-anchor="end" font-size="46" font-weight="800" fill="url(#num)">۶</text>
+            <text x="0" y="150" text-anchor="end" font-size="46" font-weight="800" fill="url(#num)">۷</text>
             <text x="0" y="178" text-anchor="end" font-size="14" fill="#7C8BB8">مخزن عمومی</text>
         </g>
         <g transform="translate(966 0)">
@@ -57,10 +57,10 @@
 
     <text x="96" y="104" font-size="14" fill="#7C8BB8">زبان‌هایی که با آن‌ها کار می‌کنم</text>
     <g clip-path="url(#bar)">
-        <rect x="96" y="138" width="306" height="14" rx="0" fill="#F1E05A" />
-        <rect x="402" y="138" width="55" height="14" rx="0" fill="#563D7C" />
-        <rect x="457" y="138" width="49" height="14" rx="0" fill="#178600" />
-        <rect x="506" y="138" width="43" height="14" rx="0" fill="#E34C26" />
+        <rect x="96" y="138" width="307" height="14" rx="0" fill="#F1E05A" />
+        <rect x="403" y="138" width="55" height="14" rx="0" fill="#563D7C" />
+        <rect x="458" y="138" width="49" height="14" rx="0" fill="#178600" />
+        <rect x="507" y="138" width="42" height="14" rx="0" fill="#E34C26" />
         <rect x="549" y="138" width="40" height="14" rx="0" fill="#3572A5" />
         <rect x="589" y="138" width="26" height="14" rx="0" fill="#8B5CF6" />
     </g>
