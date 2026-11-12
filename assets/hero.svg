@@ -171,14 +171,14 @@
                 <text class="line" x="70" y="108"><tspan fill="#7EE787">~/sepehr</tspan> <tspan fill="#8B949E">$</tspan> <tspan fill="#E6EDF3">whoami</tspan></text>
                 <text class="line" x="70" y="134"><tspan fill="#C7D2F0">sepehr</tspan> <tspan fill="#8B949E">— backend &amp; whatever-else-breaks</tspan></text>
                 <text class="line" x="70" y="164"><tspan fill="#7EE787">~/sepehr</tspan> <tspan fill="#8B949E">$</tspan> <tspan fill="#E6EDF3">ls projects/</tspan></text>
-                <text class="line" x="70" y="190"><tspan fill="#79C0FF">Sepehr-Meeting</tspan> <tspan fill="#8B949E">darsjo</tspan> <tspan fill="#8B949E">Zanjir</tspan> <tspan fill="#8B949E">SdqTerminal</tspan></text>
+                <text class="line" x="70" y="190"><tspan fill="#79C0FF">university-cafe…</tspan> <tspan fill="#8B949E">Sepehr-Meeting</tspan> <tspan fill="#8B949E">darsjo</tspan> <tspan fill="#8B949E">Zanjir</tspan></text>
                 <text class="line" x="70" y="220"><tspan fill="#7EE787">~/sepehr</tspan> <tspan fill="#8B949E">$</tspan> <tspan fill="#E6EDF3">git log -1 --oneline</tspan></text>
-                <text class="line" x="70" y="246"><tspan fill="#E3B341">09f5f88</tspan> <tspan fill="#79C0FF">darsjo:</tspan> <tspan fill="#C7D2F0">landing page for the preview site</tspan></text>
+                <text class="line" x="70" y="246"><tspan fill="#E3B341">7fae350</tspan> <tspan fill="#79C0FF">university-cafeteria:</tspan> <tspan fill="#C7D2F0">docs: add README, license…</tspan></text>
                 <text class="line" x="70" y="276"><tspan fill="#7EE787">~/sepehr</tspan> <tspan fill="#8B949E">$</tspan> <tspan fill="#E6EDF3">cat now.txt</tspan></text>
                 <text class="line" x="70" y="302"><tspan fill="#C7D2F0">self-hosted video calls that don’t need a cloud</tspan></text>
                 <text class="line" x="70" y="330"><tspan fill="#7EE787">~/sepehr</tspan> <tspan fill="#8B949E">$</tspan></text>
             </g>
-            <text x="648" y="246" text-anchor="end" class="mono" font-size="11.5" fill="#55638C">8h ago</text>
+            <text x="648" y="246" text-anchor="end" class="mono" font-size="11.5" fill="#55638C">18h ago</text>
             <rect class="cursor" x="168" y="317" width="9" height="18" rx="2" fill="#7EE787" />
         </g>
 
