@@ -36,6 +36,6 @@ A few things I keep poking at:
 
 <div align="center">
 
-**Mail:** [sepehrseddiq@gmail.com](mailto:sepehrseddiq@gmail.com) · **GitHub:** [@sepehrsdq](https://github.com/sepehrsdq) · **دفترچه:** [قوانین و الگوی طراحی](DOCS.md)
+**Mail:** [sepehrseddiq@gmail.com](mailto:sepehrseddiq@gmail.com) · **GitHub:** [@sepehrsdq](https://github.com/sepehrsdq)
 
 </div>
