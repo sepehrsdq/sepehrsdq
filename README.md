@@ -14,6 +14,8 @@ A few things I keep poking at:
 - **[SdqTerminal](https://github.com/sepehrsdq/SdqTerminal)** — a Windows terminal with real RTL support for Persian, Arabic and mixed text.
 - **[Zanjir](https://github.com/sepehrsdq/Zanjir)** — chains Windscribe through my own VPS.
 - **[darsjo](https://github.com/sepehrsdq/darsjo)** — online classes for schools, BigBlueButton under the hood.
+- **[pol](https://github.com/sepehrsdq/pol)** — AirDrop for the browser: direct file transfer over WebRTC, nothing uploaded, live at [qqsp.ir](https://qqsp.ir/).
+- **[kalevpn-bot](https://github.com/sepehrsdq/kalevpn-bot)** — Telegram bot and admin panel that runs a VPN shop on autopilot.
 
 <div align="center">
   <img src="assets/stack.svg" alt="Tools" width="100%" />
