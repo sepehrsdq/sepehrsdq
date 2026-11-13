@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="250" viewBox="0 0 1200 250" role="img" aria-label="آمار گیت‌هاب سپهر صدیق">
-    <title>آمار گیت‌هاب — به‌روزرسانی 2026-11-12</title>
+    <title>آمار گیت‌هاب — به‌روزرسانی 2026-11-13</title>
     <defs>
         <style type="text/css"><![CDATA[
             @font-face {
@@ -43,11 +43,11 @@
     <text x="1136" y="52" text-anchor="end" font-size="14" fill="#7C8BB8">در یک نگاه</text>
     <text x="1136" y="86" text-anchor="end" font-size="22" font-weight="700" fill="#E8ECFF">آمار گیت‌هاب</text>
     <g transform="translate(1136 0)">
-            <text x="0" y="150" text-anchor="end" font-size="46" font-weight="800" fill="url(#num)">۸</text>
+            <text x="0" y="150" text-anchor="end" font-size="46" font-weight="800" fill="url(#num)">۹</text>
             <text x="0" y="178" text-anchor="end" font-size="14" fill="#7C8BB8">مخزن عمومی</text>
         </g>
         <g transform="translate(966 0)">
-            <text x="0" y="150" text-anchor="end" font-size="46" font-weight="800" fill="url(#num)">۱۰</text>
+            <text x="0" y="150" text-anchor="end" font-size="46" font-weight="800" fill="url(#num)">۱۱</text>
             <text x="0" y="178" text-anchor="end" font-size="14" fill="#7C8BB8">ستاره</text>
         </g>
         <g transform="translate(796 0)">
@@ -57,12 +57,12 @@
 
     <text x="96" y="104" font-size="14" fill="#7C8BB8">زبان‌هایی که با آن‌ها کار می‌کنم</text>
     <g clip-path="url(#bar)">
-        <rect x="96" y="138" width="292" height="14" rx="0" fill="#F1E05A" />
-        <rect x="388" y="138" width="52" height="14" rx="0" fill="#563D7C" />
-        <rect x="440" y="138" width="47" height="14" rx="0" fill="#178600" />
-        <rect x="487" y="138" width="40" height="14" rx="0" fill="#E34C26" />
-        <rect x="527" y="138" width="38" height="14" rx="0" fill="#3572A5" />
-        <rect x="565" y="138" width="50" height="14" rx="0" fill="#8B5CF6" />
+        <rect x="96" y="138" width="289" height="14" rx="0" fill="#F1E05A" />
+        <rect x="385" y="138" width="53" height="14" rx="0" fill="#563D7C" />
+        <rect x="438" y="138" width="46" height="14" rx="0" fill="#178600" />
+        <rect x="484" y="138" width="41" height="14" rx="0" fill="#E34C26" />
+        <rect x="525" y="138" width="38" height="14" rx="0" fill="#3572A5" />
+        <rect x="563" y="138" width="54" height="14" rx="0" fill="#8B5CF6" />
     </g>
     <rect x="96" y="138" width="520" height="14" rx="7" fill="none" stroke="rgba(147,160,198,.18)" />
     <g transform="translate(96 184)">
@@ -96,7 +96,7 @@
             <text x="150" y="10" font-size="13" fill="#7C8BB8" text-anchor="end">۱۰٪</text>
         </g>
 
-    <text x="96" y="52" font-size="12" fill="#55638C">آخرین به‌روزرسانی: ۱۲ نوامبر ۲۰۲۶</text>
+    <text x="96" y="52" font-size="12" fill="#55638C">آخرین به‌روزرسانی: ۱۳ نوامبر ۲۰۲۶</text>
     <rect x="96" y="226" width="1008" height="1" fill="url(#rule)" />
     <rect width="1200" height="250" rx="20" fill="none" stroke="rgba(147,160,198,.14)" />
 </svg>
