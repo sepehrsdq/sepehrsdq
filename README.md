@@ -31,8 +31,8 @@ A few things I keep poking at:
 
 <div align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sepehrsdq/sepehrsdq/output/github-snake-dark.svg" />
-    <img src="https://raw.githubusercontent.com/sepehrsdq/sepehrsdq/output/github-snake.svg" alt="Contribution snake" width="100%" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sepehrsdq/sepehrsdq/output/github-snake-dark.svg?v=2" />
+    <img src="https://raw.githubusercontent.com/sepehrsdq/sepehrsdq/output/github-snake.svg?v=2" alt="Contribution snake" width="100%" />
   </picture>
 </div>
 
