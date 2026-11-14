@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="250" viewBox="0 0 1200 250" role="img" aria-label="آمار گیت‌هاب سپهر صدیق">
-    <title>آمار گیت‌هاب — به‌روزرسانی 2026-11-13</title>
+    <title>آمار گیت‌هاب — به‌روزرسانی 2026-11-14</title>
     <defs>
         <style type="text/css"><![CDATA[
             @font-face {
@@ -61,8 +61,8 @@
         <rect x="385" y="138" width="53" height="14" rx="0" fill="#563D7C" />
         <rect x="438" y="138" width="46" height="14" rx="0" fill="#178600" />
         <rect x="484" y="138" width="41" height="14" rx="0" fill="#E34C26" />
-        <rect x="525" y="138" width="38" height="14" rx="0" fill="#3572A5" />
-        <rect x="563" y="138" width="54" height="14" rx="0" fill="#8B5CF6" />
+        <rect x="525" y="138" width="37" height="14" rx="0" fill="#3572A5" />
+        <rect x="562" y="138" width="54" height="14" rx="0" fill="#8B5CF6" />
     </g>
     <rect x="96" y="138" width="520" height="14" rx="7" fill="none" stroke="rgba(147,160,198,.18)" />
     <g transform="translate(96 184)">
@@ -96,7 +96,7 @@
             <text x="150" y="10" font-size="13" fill="#7C8BB8" text-anchor="end">۱۰٪</text>
         </g>
 
-    <text x="96" y="52" font-size="12" fill="#55638C">آخرین به‌روزرسانی: ۱۳ نوامبر ۲۰۲۶</text>
+    <text x="96" y="52" font-size="12" fill="#55638C">آخرین به‌روزرسانی: ۱۴ نوامبر ۲۰۲۶</text>
     <rect x="96" y="226" width="1008" height="1" fill="url(#rule)" />
     <rect width="1200" height="250" rx="20" fill="none" stroke="rgba(147,160,198,.14)" />
 </svg>
