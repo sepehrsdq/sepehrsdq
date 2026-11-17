@@ -82,7 +82,10 @@ async function collect() {
     if (rest > 0.005) top.push({ name: 'سایر', share: rest });
 
     return {
-        repos: user.public_repos,
+        // Forks are excluded from the language bytes and the stars above,
+        // so the repo count must not include them either: a fork of someone
+        // else's project is not a repository of mine.
+        repos: publicRepos.length,
         stars,
         followers: user.followers,
         languages: top,
