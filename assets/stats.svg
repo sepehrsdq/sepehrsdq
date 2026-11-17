@@ -43,7 +43,7 @@
     <text x="1136" y="52" text-anchor="end" font-size="14" fill="#7C8BB8">در یک نگاه</text>
     <text x="1136" y="86" text-anchor="end" font-size="22" font-weight="700" fill="#E8ECFF">آمار گیت‌هاب</text>
     <g transform="translate(1136 0)">
-            <text x="0" y="150" text-anchor="end" font-size="46" font-weight="800" fill="url(#num)">۱۰</text>
+            <text x="0" y="150" text-anchor="end" font-size="46" font-weight="800" fill="url(#num)">۹</text>
             <text x="0" y="178" text-anchor="end" font-size="14" fill="#7C8BB8">مخزن عمومی</text>
         </g>
         <g transform="translate(966 0)">
