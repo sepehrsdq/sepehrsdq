@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="250" viewBox="0 0 1200 250" role="img" aria-label="آمار گیت‌هاب سپهر صدیق">
-    <title>آمار گیت‌هاب — به‌روزرسانی 2026-11-20</title>
+    <title>آمار گیت‌هاب — به‌روزرسانی 2026-11-21</title>
     <defs>
         <style type="text/css"><![CDATA[
             @font-face {
@@ -43,7 +43,7 @@
     <text x="1136" y="52" text-anchor="end" font-size="14" fill="#7C8BB8">در یک نگاه</text>
     <text x="1136" y="86" text-anchor="end" font-size="22" font-weight="700" fill="#E8ECFF">آمار گیت‌هاب</text>
     <g transform="translate(1136 0)">
-            <text x="0" y="150" text-anchor="end" font-size="46" font-weight="800" fill="url(#num)">۹</text>
+            <text x="0" y="150" text-anchor="end" font-size="46" font-weight="800" fill="url(#num)">۱۰</text>
             <text x="0" y="178" text-anchor="end" font-size="14" fill="#7C8BB8">مخزن عمومی</text>
         </g>
         <g transform="translate(966 0)">
@@ -57,46 +57,46 @@
 
     <text x="96" y="104" font-size="14" fill="#7C8BB8">زبان‌هایی که با آن‌ها کار می‌کنم</text>
     <g clip-path="url(#bar)">
-        <rect x="96" y="138" width="285" height="14" rx="0" fill="#F1E05A" />
-        <rect x="381" y="138" width="52" height="14" rx="0" fill="#563D7C" />
-        <rect x="433" y="138" width="44" height="14" rx="0" fill="#178600" />
-        <rect x="477" y="138" width="40" height="14" rx="0" fill="#E34C26" />
-        <rect x="517" y="138" width="36" height="14" rx="0" fill="#3572A5" />
-        <rect x="553" y="138" width="63" height="14" rx="0" fill="#8B5CF6" />
+        <rect x="96" y="138" width="271" height="14" rx="0" fill="#F1E05A" />
+        <rect x="367" y="138" width="58" height="14" rx="0" fill="#178600" />
+        <rect x="425" y="138" width="53" height="14" rx="0" fill="#563D7C" />
+        <rect x="478" y="138" width="37" height="14" rx="0" fill="#E34C26" />
+        <rect x="515" y="138" width="33" height="14" rx="0" fill="#3572A5" />
+        <rect x="548" y="138" width="68" height="14" rx="0" fill="#8B5CF6" />
     </g>
     <rect x="96" y="138" width="520" height="14" rx="7" fill="none" stroke="rgba(147,160,198,.18)" />
     <g transform="translate(96 184)">
             <circle cx="5" cy="5" r="4.5" fill="#F1E05A" />
             <text x="18" y="10" font-size="13.5" fill="#C7D2F0">JavaScript</text>
-            <text x="150" y="10" font-size="13" fill="#7C8BB8" text-anchor="end">۵۵٪</text>
+            <text x="150" y="10" font-size="13" fill="#7C8BB8" text-anchor="end">۵۲٪</text>
         </g>
         <g transform="translate(276 184)">
+            <circle cx="5" cy="5" r="4.5" fill="#178600" />
+            <text x="18" y="10" font-size="13.5" fill="#C7D2F0">C#</text>
+            <text x="150" y="10" font-size="13" fill="#7C8BB8" text-anchor="end">۱۱٪</text>
+        </g>
+        <g transform="translate(456 184)">
             <circle cx="5" cy="5" r="4.5" fill="#563D7C" />
             <text x="18" y="10" font-size="13.5" fill="#C7D2F0">CSS</text>
             <text x="150" y="10" font-size="13" fill="#7C8BB8" text-anchor="end">۱۰٪</text>
         </g>
-        <g transform="translate(456 184)">
-            <circle cx="5" cy="5" r="4.5" fill="#178600" />
-            <text x="18" y="10" font-size="13.5" fill="#C7D2F0">C#</text>
-            <text x="150" y="10" font-size="13" fill="#7C8BB8" text-anchor="end">۸٪</text>
-        </g>
         <g transform="translate(96 214)">
             <circle cx="5" cy="5" r="4.5" fill="#E34C26" />
             <text x="18" y="10" font-size="13.5" fill="#C7D2F0">HTML</text>
-            <text x="150" y="10" font-size="13" fill="#7C8BB8" text-anchor="end">۸٪</text>
+            <text x="150" y="10" font-size="13" fill="#7C8BB8" text-anchor="end">۷٪</text>
         </g>
         <g transform="translate(276 214)">
             <circle cx="5" cy="5" r="4.5" fill="#3572A5" />
             <text x="18" y="10" font-size="13.5" fill="#C7D2F0">Python</text>
-            <text x="150" y="10" font-size="13" fill="#7C8BB8" text-anchor="end">۷٪</text>
+            <text x="150" y="10" font-size="13" fill="#7C8BB8" text-anchor="end">۶٪</text>
         </g>
         <g transform="translate(456 214)">
             <circle cx="5" cy="5" r="4.5" fill="#8B5CF6" />
             <text x="18" y="10" font-size="13.5" fill="#C7D2F0">سایر</text>
-            <text x="150" y="10" font-size="13" fill="#7C8BB8" text-anchor="end">۱۲٪</text>
+            <text x="150" y="10" font-size="13" fill="#7C8BB8" text-anchor="end">۱۳٪</text>
         </g>
 
-    <text x="96" y="52" font-size="12" fill="#55638C">آخرین به‌روزرسانی: ۲۰ نوامبر ۲۰۲۶</text>
+    <text x="96" y="52" font-size="12" fill="#55638C">آخرین به‌روزرسانی: ۲۱ نوامبر ۲۰۲۶</text>
     <rect x="96" y="226" width="1008" height="1" fill="url(#rule)" />
     <rect width="1200" height="250" rx="20" fill="none" stroke="rgba(147,160,198,.14)" />
 </svg>
