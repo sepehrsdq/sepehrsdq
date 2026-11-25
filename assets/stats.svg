@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="250" viewBox="0 0 1200 250" role="img" aria-label="آمار گیت‌هاب سپهر صدیق">
-    <title>آمار گیت‌هاب — به‌روزرسانی 2026-11-24</title>
+    <title>آمار گیت‌هاب — به‌روزرسانی 2026-11-25</title>
     <defs>
         <style type="text/css"><![CDATA[
             @font-face {
@@ -51,7 +51,7 @@
             <text x="0" y="178" text-anchor="end" font-size="14" fill="#7C8BB8">ستاره</text>
         </g>
         <g transform="translate(796 0)">
-            <text x="0" y="150" text-anchor="end" font-size="46" font-weight="800" fill="url(#num)">۴</text>
+            <text x="0" y="150" text-anchor="end" font-size="46" font-weight="800" fill="url(#num)">۳</text>
             <text x="0" y="178" text-anchor="end" font-size="14" fill="#7C8BB8">دنبال‌کننده</text>
         </g>
 
@@ -96,7 +96,7 @@
             <text x="150" y="10" font-size="13" fill="#7C8BB8" text-anchor="end">۱۳٪</text>
         </g>
 
-    <text x="96" y="52" font-size="12" fill="#55638C">آخرین به‌روزرسانی: ۲۴ نوامبر ۲۰۲۶</text>
+    <text x="96" y="52" font-size="12" fill="#55638C">آخرین به‌روزرسانی: ۲۵ نوامبر ۲۰۲۶</text>
     <rect x="96" y="226" width="1008" height="1" fill="url(#rule)" />
     <rect width="1200" height="250" rx="20" fill="none" stroke="rgba(147,160,198,.14)" />
 </svg>
